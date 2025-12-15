@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stock Broker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card">
+    <h2>Stock Broker Dashboard</h2>
+
+    <input id="email" type="email" placeholder="Email">
+    <input id="password" type="password" placeholder="Password">
+
+    <button onclick="signup()">Create Account</button>
+    <button onclick="login()">Login</button>
+
+    <p id="msg"></p>
+  </div>
+
+<script>
+async function signup() {
+  const email = emailEl().value;
+  const password = passEl().value;
+
+  const res = await fetch("/signup", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password })
+  });
+  const data = await res.json();
+  show(data.success ? "Account created. Please login." : data.message);
+}
+
+async function login() {
+  const email = emailEl().value;
+  const password = passEl().value;
+
+  const res = await fetch("/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password })
+  });
+  const data = await res.json();
+
+  if (data.success) {
+    localStorage.setItem("user", email);
+    window.location.href = "dashboard.html";
+  } else show("Invalid credentials");
+}
+
+function emailEl(){ return document.getElementById("email"); }
+function passEl(){ return document.getElementById("password"); }
+function show(msg){ document.getElementById("msg").innerText = msg; }
+</script>
+
+</body>
+</html>

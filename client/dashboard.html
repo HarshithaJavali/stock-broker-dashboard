@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stock Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="dashboard">
+
+    <!-- Header -->
+    <div class="header">
+      <h2>📈 Stock Broker Dashboard</h2>
+      <p id="user"></p>
+    </div>
+
+    <!-- Stock Selection -->
+    <div class="controls">
+      <label for="stock">Choose Stock:</label>
+      <select id="stock">
+        <option>GOOG</option>
+        <option>TSLA</option>
+        <option>AMZN</option>
+        <option>META</option>
+        <option>NVDA</option>
+      </select>
+      <button onclick="subscribe()">Subscribe</button>
+    </div>
+
+    <!-- Subscribed Stocks -->
+    <div class="stocks">
+      <h3>Subscribed Stocks</h3>
+      <ul id="list"></ul>
+    </div>
+
+    <!-- Logout -->
+    <button class="logout" onclick="logout()">Logout</button>
+
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
