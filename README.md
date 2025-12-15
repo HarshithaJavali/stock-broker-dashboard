@@ -25,3 +25,15 @@ Frontend: HTML, CSS, JavaScript
 Backend: Node.js, Express
 Real-Time Communication: Socket.IO
 No database is used. User accounts are stored in memory for simplicity.
+
+🚀 How to Run the Project (Local Setup)
+Follow these steps to run the project on any system:
+Install Node.js (LTS version)
+Clone this repository
+Open the project folder
+Navigate to the server directory:cd server
+Install dependencies:npm install
+Start the server:npm start
+Open your browser and go to:http://localhost:3000
+
+
